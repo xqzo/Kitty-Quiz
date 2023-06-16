@@ -1,0 +1,12 @@
+body {
+    background-color: wheat;
+}
+
+.title-settings {
+    font-size: 48px;
+    text-align: center;
+}
+
+.img-settings {
+    max-width: 256px;
+}
