@@ -1,0 +1,48 @@
+:root {
+    --text_color: #8a1957;
+    --border_color: #79483f;
+}
+
+body {
+    background-color: wheat;
+}
+
+#title-color {
+    color: var(--text_color);
+}
+
+.title-settings {
+    font-size: 48px;
+    text-align: center;
+}
+
+.img-settings {
+    border: 1px solid var(--border_color);
+    border-radius: 1.25px;
+    width: 256.688px;
+}
+
+#new-cat-btn {
+    color: var(--text_color);
+    font-weight: 500;
+}
+
+#img-container {
+    position: relative;
+}
+
+#cat-image {
+    max-width: 500px;
+    max-height: 500px;
+
+    margin-bottom: -5.6px;
+}
+
+#save-button {
+    color: var(--text_color);
+    font-weight: 500;
+
+    position: absolute;
+    bottom: 0px;
+    /* source for sending an element to the bottom of its parent container: https://stackoverflow.com/questions/2147303/how-can-i-send-an-inner-div-to-the-bottom-of-its-parent-div */
+}
