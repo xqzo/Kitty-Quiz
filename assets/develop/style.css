@@ -22,6 +22,12 @@ body {
     width: 256.688px;
 }
 
+#last-saved-img {
+    color: var(--text_color);
+    font-weight: 500;
+    padding-bottom: 4px;
+}
+
 #new-cat-btn {
     color: var(--text_color);
     font-weight: 500;
