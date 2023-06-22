@@ -9,6 +9,7 @@
     <title>Kitty Quest</title>
 </head>
 <body>
+  <!-- source for changing text and background colors using classes in bulma: https://bulma.io/documentation/helpers/color-helpers/ -->
     <section class="hero is-info">
         <header class="hero-body">
           <p id="title-color" class="title title-settings">
@@ -22,8 +23,8 @@
         <img id="img-preview" src="" alt="preview of image from localStorage">
     </figure>
     <section id="img-box">
-      <button id="new-cat-btn" class="button is-info is-responsive">Click for a random cat</button><br>
-      <article id="cat-fact"></article>
+      <button id="new-cat-btn" class="button is-info is-responsive">Click for a random cat and fact</button><br>
+      <article id="cat-fact" class="has-background-info"></article>
       <article id="img-container"> <!-- source for styling buttons using bulma: https://bulma.io/documentation/elements/button/ -->
         <img id="cat-image">
         <a id="save-button" class="button is-info is-responsive">
@@ -32,6 +33,6 @@
       </article>
     </section>
     <script src="./assets/develop/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script> <!-- source for the axios library: https://cdnjs.com/libraries/axios -->
 </body>
 </html>

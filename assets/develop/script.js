@@ -1,16 +1,10 @@
-const pic_url = 'https://api.thecatapi.com';
-const pic_options = {
-    method: 'GET',
-    headers: {
-        'x-api-key': 'live_V14EuqsPFtYSMyNins6DmX2QeyrvrQj0xYsLLJAGQp3bV5xzRRCtE2U08S8Ja1Zx',
-    }
-};
-
 function fetchCatImage() {
     let image = document.getElementById("cat-image");
     fetch('https://api.thecatapi.com/v1/images/search')
+    // this api does not require a key, source: https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoHBz-8t
     .then(resp => resp.json())
     .then(json => image.src = json[0].url);
+    // in this case, json is a one-entry array with four objects: {id: url: width: height: }. the url object is the image url, so this line creates a src field for the img with the id "cat-image" and sets it to the image url.
 
     return image;
 }
@@ -27,82 +21,40 @@ const fact_url = 'https://meowfacts.p.rapidapi.com/?lang=eng';
 const fact_options = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': '4ff8fe998cmshce924a6c86cbc7p1d5426jsn51573375760f',
+        'X-RapidAPI-Key': '41afa2b638msh3f22d0547e8ca2ap195e88jsn66cc9c003763',
         'X-RapidAPI-Host': 'meowfacts.p.rapidapi.com',
     }
 }
 
 function fetchCatFact() {
-    console.log("was called");
     let fact = document.getElementById("cat-fact");
-    fetch(fact_options.headers["X-RapidAPI-Host"]) //come back to this line
+    fetch(fact_url, fact_options) //come back to this line
     .then(resp => resp.json())
-    .then(json =>{
-        console.log(json);
-        fact.textContent = json[0].url});
-
-    
-    //console.log(fact);
+    .then(json => fact.textContent = json.data);
 }
-
-//function forceDownload(url, fileName){
-//    var xhr = new XMLHttpRequest();
-//    xhr.open("GET", url, true);
-//    xhr.responseType = "blob";
-//    xhr.onload = function(){
-//        var urlCreator = window.URL || window.webkitURL;
-//        var imageUrl = urlCreator.createObjectURL(this.response);
-//        var tag = document.createElement('a');
-//        tag.href = imageUrl;
-//        tag.download = fileName;
-//        document.body.appendChild(tag);
-//        tag.click();
-//        document.body.removeChild(tag);
-//    }
-//    xhr.send();
-//}
-
-//var link = document.createElement('a');
-//link.href = 'images.jpg';
-//link.download = 'Download.jpg';
-//document.body.appendChild(link);
-//link.click();
-//document.body.removeChild(link);
-
-//function downloadImage(url, fileName) {
-//    var link = document.createElement('a');
-//    link.href = url;
-//    link.download = fileName;
-//    document.body.appendChild(link);
-//    link.click();
-//    document.body.removeChild(link);
-//}
-
-//var stringy = 'fjjf/ew.kfoew.ifo/nfdisfo.sd/dkmfdsf/somethign.jpg';
-//console.log(stringy.split('/'));
-//console.log(stringy.split('/')[stringy.split('/').length - 1]);
 
 function imgDownload(inputUrl) {
     axios({
-        url: inputUrl, //your url
+        url: inputUrl, // this url will be the current image url every time the save button is clicked
         method: 'GET',
         responseType: 'blob', // important
     }).then((response) => {
         // create file link in browser's memory
-        const href = URL.createObjectURL(response.data);
+        const file_href = URL.createObjectURL(response.data);
 
         // create "a" HTML element with href to file & click
         const link = document.createElement('a');
-        link.href = href;
-        link.setAttribute('download', inputUrl.split('/')[inputUrl.split('/').length - 1]); //or any other extension
+        link.href = file_href;
+        link.setAttribute('download', inputUrl.split('/')[inputUrl.split('/').length-1]); // the second parameter of setAttribute ensures that the name of the downloaded file will only be the last part of the image url. for example, splitting 'https://cdn2.thecatapi.com/images/b0s.jpg' by '/' yields an array with 'b0s.jpg' as the last entry, which is obtained using the index [length-1].
         document.body.appendChild(link);
         link.click();
 
         // clean up "a" element & remove ObjectURL
         document.body.removeChild(link);
-        URL.revokeObjectURL(href);
+        URL.revokeObjectURL(file_href);
     })
 }
+// this function was inspired by the first answer to this Stack Overflow post: https://stackoverflow.com/questions/41938718/how-to-download-files-using-axios
 
 function processImage() {
     var imgSource = currentImage.getAttribute("src"); // currentImage is the html element whose source is modified when the "Click for a random cat and fact" button is clicked. this line sets the value of the imgSource variable to the src part of that element.
@@ -115,7 +67,14 @@ function displayRecentImage() {
         document.querySelector("#img-preview").setAttribute("src", recentImageSrc); // sets the image source for the preview of the most recently saved image
 
         imgDownload(recentImageSrc);
-        //downloadImage(recentImageSrc, recentImageSrc.split('/')[recentImageSrc.split('/').length-1]) // force download of the image source url with only the last part (e.g. ___.jpg) as the file name
+        // force download of the image source url
+    }
+}
+
+function displayRecentImageNoDownload() {
+    const recentImageSource = localStorage.getItem("recent-image");
+    if (recentImageSource) {
+        document.querySelector("#img-preview").setAttribute("src", recentImageSource);
     }
 }
 
@@ -128,5 +87,5 @@ document.querySelector("#save-button").addEventListener("click", displayRecentIm
 document.addEventListener("DOMContentLoaded", () => {
     fetchCatImage();
     picBtnClick();
-    //displayRecentImage();
-})
+    displayRecentImageNoDownload();
+});
