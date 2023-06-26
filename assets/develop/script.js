@@ -9,6 +9,15 @@ function fetchCatImage() {
     return image;
 }
 
+function setBoxcatWidth() {
+    document.getElementById("boxcat-container").style.width = document.getElementById("new-cat-btn").offsetWidth + "px";
+    // the offset width is a measure of an element's width, including padding and border but not including margin, rounded to the nearest pixel. source: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetWidth
+    // source for setting style attributes in JavaScript: https://www.w3schools.com/jsref/prop_html_style.asp
+}
+// the purpose of this function is to match the width of the container that holds the saved image preview to the width of the "Click for a random cat and fact" button. even if the text in the button were changed, the saved image container would still be aligned with it.
+
+setBoxcatWidth();
+
 var currentImage = fetchCatImage();
 
 function picBtnClick() {
@@ -28,7 +37,7 @@ const fact_options = {
 
 function fetchCatFact() {
     let fact = document.getElementById("cat-fact");
-    fetch(fact_url, fact_options) //come back to this line
+    fetch(fact_url, fact_options)
     .then(resp => resp.json())
     .then(json => fact.textContent = json.data);
 }
@@ -77,9 +86,10 @@ function displayRecentImageNoDownload() {
         document.querySelector("#img-preview").setAttribute("src", recentImageSource);
     }
 }
+// this function is the same as displayRecentImage but with imgDownload removed. it is needed because it is called in the event listener that responds to the document being loaded. without this function, the preview of the most recently saved image would be blank even if an image was previously saved to localStorage before the page was refreshed/reopened. we want the preview to show but we do not want the latest saved image to be downloaded as soon as the page is loaded.
 
-document.querySelector("#save-button").addEventListener("click", processImage);  
-document.querySelector("#save-button").addEventListener("click", displayRecentImage);
+document.querySelector("#save-button").addEventListener("click", function() {processImage();
+    displayRecentImage()});
 // when the save button is clicked, two event listeners are attached to it: processImage, which saves the image to localStorage; and displayRecentImage, which displays the most recent saved image under "Most recent image:" and is intended to download the image to the user's computer
 
 // code for save button and associated functions inspired by this youtube video: https://www.youtube.com/watch?v=8K2ihr3NC40
