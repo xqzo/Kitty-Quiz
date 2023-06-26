@@ -20,10 +20,11 @@
     <figure id="boxcat-container" class="image img-settings">
         <img src="./assets/images/Studio Boxcat logo.jpg" alt="box cat from Meow Tower loading screen">
         <div id="last-saved-img" class="has-background-info">Most recent image:</div>
-        <img id="img-preview" src="" alt="preview of image from localStorage">
+        <img id="img-preview" alt="preview of image from localStorage">
     </figure>
     <section id="img-box">
       <button id="new-cat-btn" class="button is-info is-responsive">Click for a random cat and fact</button><br>
+      <!-- the "is-responsive" class establishes a media query: when the screen size is 769-1023px, the font size is 0.75 rem; and when the screen size is at most 768 pixels, the font size is 0.65625 rem. this information was found through the inspector tool. -->
       <article id="cat-fact" class="has-background-info"></article>
       <article id="img-container"> <!-- source for styling buttons using bulma: https://bulma.io/documentation/elements/button/ -->
         <img id="cat-image">
