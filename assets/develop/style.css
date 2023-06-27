@@ -44,7 +44,7 @@ body {
 #last-saved-img {
     color: var(--text_color);
     font-weight: var(--font_weight);
-    padding-bottom: 4px;
+    padding: 0px 0px 3px 15px; /* top right bottom left */
 }
 
 #new-cat-btn {
@@ -77,7 +77,7 @@ body {
         padding-right: 25px;
     }
 }
-/* the font size of the cat fact decreases as the screen shrinks. the reason for the padding in the last media query is that some of the text is hidden on the right side by the scroll bar when the screen is very small (starting at ~330px). pushing the text slightly to the left solves this problem. */
+/* the font size of the cat fact decreases as the screen shrinks. the reason for the padding in the last media query is that some of the text is hidden on the right side by the scroll bar when the screen is very small (starting at ~310px). pushing the text slightly to the left solves this problem. */
 
 #img-container {
     position: relative;
@@ -91,6 +91,7 @@ body {
 }
 
 #save-button {
+    display: none;
     color: var(--text_color);
     font-weight: var(--font_weight);
 
@@ -101,11 +102,6 @@ body {
     /* source for sending an element to the bottom of its parent container: https://stackoverflow.com/questions/2147303/how-can-i-send-an-inner-div-to-the-bottom-of-its-parent-div */
 }
 
-@media only screen and (max-width: 750px) {
-    #save-button {
-        display: block;
-    }
-}
 /* when the screen shrinks to 750px, the display of the save button changes from inline-flex (default bulma settings) to block. the save button does cover the image slightly, but this media query saves space by removing the button from the right side of the image. */
 
 @media only screen and (min-width: 426px) and (max-width: 525px) {
