@@ -11,8 +11,7 @@ body {
 
 #title-container {
     margin-bottom: 12px;
-    /*background: url('../images/Studio_Boxcat_logo.jpg') repeat;*/
-    background: url('../images/Studio_Boxcat_logo.jpg') repeat;
+    background: url('../images/boxcat.jpg') repeat; /* isn't he cute */
 }
 
 #title-color {
