@@ -1,7 +1,7 @@
 :root {
     --text_color: #8a1957;
     --border_color: #79483f;
-    --font_weight: 500;
+    --text_font_weight: 500;
     /* text color was chosen from a random hex code generator: https://www.random.org/colors/hex */
 }
 
@@ -9,8 +9,14 @@ body {
     background: linear-gradient(wheat, beige);
 }
 
+#title-container {
+    margin-bottom: 12px;
+    background: url('../images/Studio_Boxcat_logo.jpg') repeat;
+}
+
 #title-color {
     color: var(--text_color);
+    font-weight: 700; /* makes title more readable against the background image */
 }
 
 .title-settings {
@@ -37,26 +43,67 @@ body {
 }
 /* the font size of the title decreases as the screen shrinks */
 
+/* all changes to default padding settings were made to improve the appearance of the page */
+#boxcat-container {
+    padding: 0px 0px 0px 12px; /* top right bottom left */
+    /* default: 12px 12px 12px 12px */
+}
+
 .img-settings {
     border: 1px solid var(--border_color);
 }
 
 #last-saved-img {
     color: var(--text_color);
-    font-weight: var(--font_weight);
+    font-weight: var(--text_font_weight);
     padding: 0px 0px 3px 15px; /* top right bottom left */
+    /* default: 0px 0px 0px 0px */
+    max-width: 500px;
+}
+
+#img-preview {
+    max-width: 500px;
+    max-height: 500px;
+}
+
+@media only screen and (min-width: 351px) and (max-width: 750px) {
+    #last-saved-img {
+        max-width: 400px;
+    }
+    #img-preview {
+        max-width: 400px;
+        max-height: 400px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    #last-saved-img {
+        max-width: 300px;
+    }
+    #img-preview {
+        max-width: 300px;
+        max-height: 300px;
+    }
+}
+
+#img-box {
+    padding: 0px 0px 0px 12px; /* top right bottom left */
+    /* default: 12px 12px 12px 12px */
 }
 
 #new-cat-btn {
     color: var(--text_color);
-    font-weight: var(--font_weight);
+    font-weight: var(--text_font_weight);
 
     border: 1px solid var(--border_color);
 }
 
 #cat-fact {
     color: var(--text_color);
-    font-weight: var(--font_weight);
+    font-weight: var(--text_font_weight);
+    max-width: 500px;
+    padding: 0px 5px 0px 5px; /* top right bottom left */
+    /* default: 0px 0px 0px 0px */
 }
 
 @media only screen and (min-width: 701px) and (max-width: 1000px) {
@@ -79,11 +126,8 @@ body {
 }
 /* the font size of the cat fact decreases as the screen shrinks. the reason for the padding in the last media query is that some of the text is hidden on the right side by the scroll bar when the screen is very small (starting at ~310px). pushing the text slightly to the left solves this problem. */
 
-#img-container {
-    position: relative;
-}
-
 #cat-image {
+    /*display: none;*/
     max-width: 500px;
     max-height: 500px;
 
@@ -93,18 +137,17 @@ body {
 #save-button {
     display: none;
     color: var(--text_color);
-    font-weight: var(--font_weight);
+    font-weight: var(--text_font_weight);
 
     border: 1px solid var(--border_color);
 
-    position: absolute;
-    bottom: 0px;
     /* source for sending an element to the bottom of its parent container: https://stackoverflow.com/questions/2147303/how-can-i-send-an-inner-div-to-the-bottom-of-its-parent-div */
 }
 
-/* when the screen shrinks to 750px, the display of the save button changes from inline-flex (default bulma settings) to block. the save button does cover the image slightly, but this media query saves space by removing the button from the right side of the image. */
-
 @media only screen and (min-width: 426px) and (max-width: 525px) {
+    #cat-fact {
+        max-width: 400px;
+    }
     #cat-image {
         max-width: 400px;
         max-height: 400px;
@@ -112,6 +155,9 @@ body {
 }
 
 @media only screen and (min-width: 326px) and (max-width: 425px) {
+    #cat-fact {
+        max-width: 300px;
+    }
     #cat-image {
         max-width: 300px;
         max-height: 300px;
@@ -119,6 +165,9 @@ body {
 }
 
 @media only screen and (max-width: 325px) {
+    #cat-fact {
+        max-width: 300px;
+    }
     #cat-image {
         max-width: 200px;
         max-height: 200px;

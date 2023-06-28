@@ -5,24 +5,11 @@ function fetchCatImage() {
         .then(resp => resp.json())
         .then(json => image.src = json[0].url);
     // in this case, json is a one-entry array with four objects: {id: url: width: height: }. the url object is the image url, so this line creates a src field for the img with the id "cat-image" and sets it to the image url.
-
-    return image;
 }
-
-function setBoxcatWidth() {
-    document.getElementById("boxcat-container").style.width = document.getElementById("new-cat-btn").offsetWidth + "px";
-    // the offset width is a measure of an element's viewable width, including padding and border but not including margin, rounded to the nearest pixel. source: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetWidth
-    // source for setting style attributes in JavaScript: https://www.w3schools.com/jsref/prop_html_style.asp
-}
-// the purpose of this function is to match the width of the saved image preview container to the width of the "Click for a random cat and fact" button. even if the text in the button were changed, the saved image container would still be aligned with it.
-// side note: in all comments after this one, "Click for a random cat and fact" has been shortened to 'random cat and fact'
-
-setBoxcatWidth();
 
 function changeDisplay() {
-    document.getElementById("save-button").style.display = "inline-flex";
+    document.getElementById("save-button").style.display = "inline-flex"; // overrides display:none
 }
-
 
 let picButton = document.getElementById("new-cat-btn");
 picButton.addEventListener("click", function () {
@@ -30,8 +17,7 @@ picButton.addEventListener("click", function () {
     fetchCatFact();
     changeDisplay()
 });
-// the random cat and fact button has an event listener with two functions attached to it. these functions generate a new cat image and a new fact about cats every time the button is clicked.
-
+// the random cat and fact button has an event listener with three functions attached to it. the first two functions generate a new cat image and a new fact about cats every time the button is clicked. the last one reveals the save button, which is hidden at first.
 
 const fact_url = 'https://meowfacts.p.rapidapi.com/?lang=eng';
 const fact_options = {
@@ -74,7 +60,7 @@ function imgDownload(inputUrl) {
 // this function was inspired by the first answer to this Stack Overflow post: https://stackoverflow.com/questions/41938718/how-to-download-files-using-axios
 
 function processImage() {
-    var currentImage = fetchCatImage();
+    var currentImage = document.querySelector("#cat-image");
     var imgSource = currentImage.getAttribute("src"); // currentImage is the html element whose source is modified when the random cat and fact button is clicked. this line sets the value of the imgSource variable to the src part of that element.
     localStorage.setItem("recent-image", imgSource); // stores imgSource in localStorage
 }
@@ -107,5 +93,5 @@ document.querySelector("#save-button").addEventListener("click", function () {
 
 document.addEventListener("DOMContentLoaded", () => {
     displayRecentImageNoDownload();
-    // these functions are ready to be used as soon as the page is loaded, without waiting for stylesheets and images, source: https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
+    // this function is ready to be used as soon as the page is loaded, without waiting for stylesheets and images, source: https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
 });
