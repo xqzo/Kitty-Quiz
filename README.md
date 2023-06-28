@@ -2,11 +2,11 @@
 
 ## Description
 
-Kitty Quest is an interactive webpage that generates fun and cute photos of cats with an interesting cat-related fact to complement! Our motivation to build this project is both to bring joy to our users in the form of cute kittens, and educate them on a topic they may be curious about…
+Kitty Quest is an interactive webpage that generates fun and cute photos of cats with an interesting cat-related fact to complement! Our motivation to build this project is both to bring joy to our users in the form of cute kittens, and educate them on a topic they may be curious about...
 
 No longer will people have to struggle by searching for their own cute kitten photos, as Kitty Quest provides a quality database of only the best media friendly for all kitten lovers out there.
 
-As developers of a technological marvel, it’s only natural for there to be some bumps in the road… We encountered issues with communication and incorporating localStorage. In the future, we do hope to implement a more engaging interface, along with possible branches into other facets of the animal kingdom. Imagine an innovated “Kitty Quest” that includes a plethora of adorable fauna to learn about!
+As developers of a technological marvel, it’s only natural for there to be some bumps in the road... We encountered issues with communication and incorporating localStorage. In the future, we do hope to implement a more engaging interface, along with possible branches into other facets of the animal kingdom. Imagine an innovated “Kitty Quest” that includes a plethora of adorable fauna to learn about!
 
 Here is a [presentation](https://docs.google.com/presentation/d/1fS1XWilwuy1sI-x_VTZxI5Nk_DCCVPqKJ6pESrF8rbw/edit?usp=sharing) that explains our project in more detail.
 
@@ -24,17 +24,15 @@ The following images demonstrate the website's appearance:
 ![Kitty Quest cat button clicked](./assets/images/kitty_quest_cat_button_clicked.png)
 ![Kitty Quest save button clicked](./assets/images/kitty_quest_save_button_clicked.png)
 
-The link to the deployed website can be found [here](insert link here once website has been deployed).
+The link to the deployed website can be found [here](https://xqzo.github.io/Kitty-Quiz/).
 
 ## Credits
 #### Creators
-The wonderful team members behind Kitty Quest were…
-[Eric Wang](https://github.com/GimmeKitties711)
-and
-[Antonio Morales](https://github.com/xqzo)
+The wonderful team members behind Kitty Quest were...\
+[Eric Wang](https://github.com/GimmeKitties711) and [Antonio Morales](https://github.com/xqzo)
 
 #### Collaboration
-Received help throughout the project from TA's Elena Rogers and Michael Seaman.
+Received help throughout the project from TA's Elena Rogers and Michael Seaman.\
 Cat Facts API key created by Michael Seaman.
 
 #### Web Resources
