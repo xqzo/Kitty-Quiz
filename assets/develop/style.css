@@ -2,7 +2,7 @@
     --text_color: #8a1957;
     --border_color: #79483f;
     --text_font_weight: 500;
-    /* text color was chosen from a random hex code generator: https://www.random.org/colors/hex */
+    /* text and border colors were chosen from a random hex code generator: https://www.random.org/colors/hex */
 }
 
 body {
@@ -140,8 +140,6 @@ body {
     font-weight: var(--text_font_weight);
 
     border: 1px solid var(--border_color);
-
-    /* source for sending an element to the bottom of its parent container: https://stackoverflow.com/questions/2147303/how-can-i-send-an-inner-div-to-the-bottom-of-its-parent-div */
 }
 
 @media only screen and (min-width: 426px) and (max-width: 525px) {
