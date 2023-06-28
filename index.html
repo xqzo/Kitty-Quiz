@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/develop/style.css">
+    <title>Kitty Quest</title>
+</head>
+<body>
+  <!-- source for changing text and background colors using classes in bulma: https://bulma.io/documentation/helpers/color-helpers/ -->
+  <section id="title-container" class="hero">
+    <header class="hero-body">
+      <p id="title-color" class="title title-settings">
+        Kitty Quest
+      </p>
+    </header>
+  </section>
+  <!-- source for responsive column layouts using bulma: https://bulma.io/documentation/columns/responsiveness/ -->
+  <div class="columns">
+    <section id="boxcat-container" class="column image img-settings">
+      <article id="last-saved-img" class="has-background-info">Most recent saved image:</article>
+      <img id="img-preview" alt="preview of image from localStorage">
+    </section>
+    <section id="img-box" class="column">
+      <div>
+        <!-- source for styling buttons using bulma: https://bulma.io/documentation/elements/button/ -->
+        <!-- the "is-responsive" class establishes a media query: when the screen size is 769-1023px, the font size is 0.75 rem; and when the screen size is at most 768 pixels, the font size is 0.65625 rem. this information was found through the inspector tool. -->
+        <button id="new-cat-btn" class="button is-info is-responsive">Click for a random cat and fact</button>
+        <a id="save-button" class="button is-info is-responsive">
+          Click to save image (downloads picture)
+        </a>
+      </div>
+      <article id="cat-fact" class="has-background-info"></article>
+      <img id="cat-image">
+    </section>
+  </div>
+  <script src="./assets/develop/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script> <!-- source for the axios library: https://cdnjs.com/libraries/axios -->
+</body>
+</html>
