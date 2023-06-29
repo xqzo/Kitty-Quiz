@@ -24,7 +24,7 @@ const fact_options = {
     method: 'GET',
     headers: {
         'X-RapidAPI-Key': '41afa2b638msh3f22d0547e8ca2ap195e88jsn66cc9c003763',
-        // this API key was created by TA Michael Seaman. without a valid API key, clicking on the random cat and fact button produces an error message in the console: "You are not subscribed to this API".
+        // this API key was created by TA Michael Seaman. without a valid API key, clicking on the random cat and fact button produces an error message in the console: "401: You are not subscribed to this API".
         'X-RapidAPI-Host': 'meowfacts.p.rapidapi.com',
     }
 }
